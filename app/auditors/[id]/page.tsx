@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   const mockUsers = await getMockUsers()
   console.log(mockUsers)
   return mockUsers.map((user) => ({
-    id: user.id,
+    id: String(user.id),
   }))
 }
 
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 const page = ({ params }: { params: AuditorPageParams }) => {
   const { id } = params;
   return (
-    <div>{id}</div>
+    <div className='m-4'>User {id}</div>
   )
 }
 
